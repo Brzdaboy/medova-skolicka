@@ -307,14 +307,14 @@
   .day-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start }
   .timeline { display: flex; flex-direction: column; gap: 0 }
   .tl-item {
-    display: grid; grid-template-columns: 120px 1fr; gap: 28px;
+    display: grid; grid-template-columns: 160px 1fr; gap: 28px;
     padding: 22px 0; border-bottom: 1px dashed var(--line);
     align-items: baseline;
   }
   .tl-item:last-child { border-bottom: none }
   .tl-time {
     font-family: 'puffin-display', 'Fraunces', sans-serif; font-weight: 700;
-    font-size: 22px; color: var(--honey-deep); letter-spacing: -0.01em;
+    font-size: 22px; color: var(--honey-deep); letter-spacing: -0.01em; white-space: nowrap;
   }
   .tl-body h4 { font-size: 18px; margin-bottom: 4px }
   .tl-body p { color: var(--ink-soft); font-size: 15px }
@@ -327,7 +327,7 @@
   @media (max-width: 860px) {
     .day-grid { grid-template-columns: 1fr; gap: 40px }
     .day-photo { position: static; max-width: 420px }
-    .tl-item { grid-template-columns: 90px 1fr; gap: 16px }
+    .tl-item { grid-template-columns: 140px 1fr; gap: 16px }
   }
 
   /* ---------- price ---------- */
@@ -347,7 +347,7 @@
     left: -80px; bottom: -60px;
   }
   .price h2 { color: #fff }
-  .price .lead { color: rgba(255,255,255,0.7) }
+  .price .lead, .price .section-head p.lead { color: #fff }
   .price-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; position: relative; z-index: 2 }
   .price-card {
     background: rgba(255,255,255,0.04);
@@ -370,7 +370,8 @@
 
   /* ---------- faq ---------- */
   .faq { background: var(--cream-2) }
-  .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 820px }
+  .faq .section-head { text-align: center; align-items: center }
+  .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 820px; margin: 0 auto }
   .faq details {
     border: 1px solid var(--line); background: #fff; border-radius: 16px;
     padding: 22px 26px; transition: background .15s ease;
@@ -636,18 +637,18 @@
     <div class="section-head reveal">
       <span class="eyebrow">Náš den ve školičce</span>
       <h2>Klidný, předvídatelný režim, ve kterém děti rozkvétají.</h2>
-      <p class="lead">Denní program stavíme na rytmu, který děti uklidňuje — ranní kruh, hra, pobyt venku, oběd, odpočinek a odpolední tvoření.</p>
+      <p class="lead">Denní režim v dětské skupině je rámcový, flexibilní a přizpůsobuje se individuálním potřebám dětí.</p>
     </div>
     <div class="day-grid">
       <div class="timeline stagger">
-        <div class="tl-item"><div class="tl-time">06:30</div><div class="tl-body"><h4>Příchod a volná hra</h4><p>Pozvolné vítání, čas na společnou hru a adaptaci s ostatními dětmi.</p></div></div>
-        <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><h4>Ranní kruh a svačinka</h4><p>Společné přivítání, písničky, krátké povídání — a svačinka, která dává sílu.</p></div></div>
-        <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-body"><h4>Řízená činnost</h4><p>Tvoření, pohybové aktivity nebo téma týdne — vždy přiměřeně věku dětí.</p></div></div>
-        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-body"><h4>Pobyt venku</h4><p>Zahrada, procházka po okolí, kontakt s přírodou — za každého rozumného počasí.</p></div></div>
-        <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-body"><h4>Oběd</h4><p>Pestrá strava přizpůsobená dětem. Učíme se stolovat i samostatně jíst.</p></div></div>
-        <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-body"><h4>Odpočinek a pohádka</h4><p>Klidná chvilka s knížkou, spánek podle individuální potřeby.</p></div></div>
-        <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-body"><h4>Odpolední svačinka a hry</h4><p>Volné tvoření, hry v herně nebo na zahradě — až do odchodu domů.</p></div></div>
-        <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-body"><h4>Konec provozu</h4><p>Školička se loučí — těšíme se zase zítra.</p></div></div>
+        <div class="tl-item"><div class="tl-time">06:15 – 08:30</div><div class="tl-body"><h4>Příchod dětí a ranní hry</h4><p>Postupné scházení dětí, volná spontánní hra, ranní přivítání a komunikace s rodiči.</p></div></div>
+        <div class="tl-item"><div class="tl-time">08:30 – 09:00</div><div class="tl-body"><h4>Svačina</h4><p>Osobní hygiena a dopolední svačina.</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:00 – 10:00</div><div class="tl-body"><h4>Ranní kruh a řízené činnosti</h4><p>Ranní kruh, vzdělávací aktivity, psychomotorické hry, zpívání, tvoření nebo pohybové hry a zdravotní cvičení.</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:00 – 11:30</div><div class="tl-body"><h4>Pobyt venku</h4><p>Využití zahrady nebo procházky v okolí dětské skupiny.</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30 – 12:15</div><div class="tl-body"><h4>Oběd a hygiena</h4><p>Příprava na oběd, polední stravování, následná hygiena a příprava na odpočinek.</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:15 – 14:00</div><div class="tl-body"><h4>Odpočinek</h4><p>Spánek, pro děti s menší potřebou spánku nabídka klidových činností.</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:00 – 14:30</div><div class="tl-body"><h4>Odpolední svačina</h4><p>Osobní hygiena a odpolední svačina.</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:30 – 16:15</div><div class="tl-body"><h4>Odpolední aktivity a odchody</h4><p>Volné hry, zájmové činnosti, postupné vyzvedávání dětí.</p></div></div>
       </div>
       <div class="day-photo reveal-right"></div>
     </div>
@@ -725,7 +726,7 @@
       </details>
       <details>
         <summary>Jak probíhá přijímání?</summary>
-        <p>Vyplňte <a href="#registrace" style="color:var(--honey-deep);font-weight:600">registrační formulář</a>. Následně vás pozveme na osobní schůzku a prohlídku prostor. O přijetí rozhoduje pořadí přihlášek a přednostní kritéria.</p>
+        <p>Vyplňte <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=0KIWSYmGGkWJuv28nOM4DAtfFUUtdiVNrEsfdbw1klRUMzlDQ0hHN1RMUTQzUzVUM044VzZUVjdUVC4u" target="_blank" rel="noopener" style="color:var(--honey-deep);font-weight:600">registrační formulář</a>. Následně vás pozveme na osobní schůzku a prohlídku prostor. O přijetí rozhoduje pořadí přihlášek a přednostní kritéria.</p>
       </details>
     </div>
   </div>
@@ -744,7 +745,7 @@
       Kapacita je omezená — ve dvou skupinách máme celkem <strong>24 míst</strong>.
       Vyplňte krátký formulář a my vás pozveme na osobní schůzku a prohlídku školičky.
     </p>
-    <a href="#" class="btn-big">
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=0KIWSYmGGkWJuv28nOM4DAtfFUUtdiVNrEsfdbw1klRUMzlDQ0hHN1RMUTQzUzVUM044VzZUVjdUVC4u" target="_blank" rel="noopener" class="btn-big">
       Vyplnit registrační formulář
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
