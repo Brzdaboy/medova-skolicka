@@ -235,9 +235,34 @@
     line-height: 1;
   }
   .stats .lbl { font-size: 14px; color: rgba(255,255,255,0.72); margin-top: 6px }
+  .stats-scroll-hint { display: none }
   @media (max-width: 820px) {
-    .stats .inner { grid-template-columns: repeat(2,1fr) }
-    .stats .cell { border-bottom: 1px solid rgba(255,255,255,0.08) }
+    .stats { position: relative }
+    .stats-scroll-hint {
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      z-index: 3; pointer-events: none;
+    }
+    .stats::after {
+      content: ''; pointer-events: none;
+      position: absolute; top: 0; right: 0; width: 80px; height: 100%;
+      background: linear-gradient(to right, transparent, var(--ink));
+      z-index: 2;
+    }
+    .stats .inner {
+      display: flex; flex-direction: row;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0; gap: 0;
+    }
+    .stats .inner::-webkit-scrollbar { display: none }
+    .stats .cell {
+      flex: 0 0 58vw; scroll-snap-align: start;
+      border-right: 1px solid rgba(255,255,255,0.08); border-bottom: none;
+      padding: 28px 24px;
+    }
+    .stats .cell:last-child { border-right: none }
+    .stats .num { font-size: 36px }
   }
 
   /* ---------- about ---------- */
@@ -535,6 +560,9 @@
 
 <!-- STATS -->
 <section class="stats" style="padding:0">
+  <div class="stats-scroll-hint" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
   <div class="inner stagger wrap">
     <div class="cell"><div class="num count" data-target="24">0</div><div class="lbl">Dětí celkem ve dvou skupinách</div></div>
     <div class="cell"><div class="num">2–4</div><div class="lbl">Věkové rozmezí dětí</div></div>
@@ -837,6 +865,22 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger').forEach(el => io.observe(el));
+
+  // stats scroll hint arrow
+  const statsHint = document.querySelector('.stats-scroll-hint');
+  const statsInner = document.querySelector('.stats .inner');
+  if (statsHint && statsInner) {
+    statsHint.style.cursor = 'pointer';
+    statsHint.addEventListener('click', () => {
+      const cellWidth = statsInner.querySelector('.cell')?.offsetWidth || 200;
+      statsInner.scrollBy({ left: cellWidth, behavior: 'smooth' });
+    });
+    statsInner.addEventListener('scroll', () => {
+      const atEnd = statsInner.scrollLeft + statsInner.clientWidth >= statsInner.scrollWidth - 10;
+      statsHint.style.opacity = atEnd ? '0' : '1';
+      statsHint.style.pointerEvents = atEnd ? 'none' : 'auto';
+    }, { passive: true });
+  }
 
   // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
