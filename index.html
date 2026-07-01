@@ -352,7 +352,28 @@
   @media (max-width: 860px) {
     .day-grid { grid-template-columns: 1fr; gap: 40px }
     .day-photo { position: static; max-width: 420px }
-    .tl-item { grid-template-columns: 140px 1fr; gap: 16px }
+    .timeline {
+      position: relative; padding-left: 36px;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 9px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--line);
+    }
+    .tl-item {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 0 0 28px 16px; border-bottom: none;
+      position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0 }
+    .tl-item::before {
+      content: ''; position: absolute; left: -32px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--honey); border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--honey);
+    }
+    .tl-time { font-size: 13px; white-space: nowrap }
+    .tl-body h4 { font-size: 16px }
+    .tl-body p { font-size: 14px }
   }
 
   /* ---------- price ---------- */
