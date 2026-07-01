@@ -182,10 +182,12 @@
   }
   .hex-photo {
     display: flex; align-items: center; justify-content: center;
-    color: rgba(14,32,56,0.55); font-family: 'Inter', sans-serif;
-    font-size: 12px; font-weight: 400; text-align: center; padding: 18px;
     background-color: var(--honey-soft);
-    background-image: repeating-linear-gradient(135deg, rgba(14,32,56,0.06) 0 8px, transparent 8px 16px);
+    background-image: url('herna.jpg');
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+    font-size: 0;
   }
 
   /* hero visual */
@@ -247,11 +249,9 @@
     position: absolute; inset: 0;
     -webkit-mask: var(--hex-solid) center/contain no-repeat;
     mask: var(--hex-solid) center/contain no-repeat;
-    background:
-      repeating-linear-gradient(135deg, rgba(14,32,56,0.06) 0 8px, transparent 8px 16px),
-      var(--honey-soft);
+    background: url('herna2.jpg') center/cover no-repeat;
     display: grid; place-items: center;
-    color: rgba(14,32,56,0.55); font-family: 'Inter', sans-serif; font-size: 12px;
+    color: transparent; font-size: 0;
   }
   .about .photo .hex-small {
     position: absolute; width: 130px; height: 113px; bottom: -30px; right: -20px;
@@ -321,11 +321,8 @@
   .day-photo {
     position: sticky; top: 100px;
     aspect-ratio: 3/4; border-radius: 24px; overflow: hidden;
-    background:
-      repeating-linear-gradient(135deg, rgba(14,32,56,0.06) 0 10px, transparent 10px 20px),
-      var(--honey-soft);
-    display: grid; place-items: center;
-    color: rgba(14,32,56,0.55); font-family: 'Inter', sans-serif; font-size: 12px;
+    background: url('den.jpg') center/cover no-repeat;
+    color: transparent; font-size: 0;
   }
   @media (max-width: 860px) {
     .day-grid { grid-template-columns: 1fr; gap: 40px }
@@ -522,17 +519,13 @@
       </div>
     </div>
     <div class="hero-visual reveal-scale" aria-hidden="true">
-      <div class="hex h-big hex-photo bob" data-parallax="0.08">[ foto herny ]</div>
       <div class="hex h-s1 solid-honey bob-2" data-parallax="-0.12"></div>
-      <div class="hex h-s2 solid-honey bob-3" data-parallax="0.18"></div>
       <div class="hex h-s3 solid-honey bob" data-parallax="-0.09"></div>
+      <div class="hex h-big hex-photo bob" data-parallax="0.08"></div>
+      <div class="hex h-s2 solid-honey bob-3" data-parallax="0.18"></div>
       <div class="hex h-s4 solid-honey bob-2" data-parallax="0.14"></div>
       <div class="hex h-s5 solid-honey bob-3" data-parallax="-0.2"></div>
-      <div class="hex h-s6 solid-deep bob" data-parallax="0.22"></div>
-      <div class="hex h-p1 solid-soft bob-2" data-parallax="-0.14"></div>
       <div class="hex h-p2 solid-soft bob-3" data-parallax="0.1"></div>
-      <div class="hex-ring h-r1 bob" data-parallax="-0.18"></div>
-      <div class="hex-ring h-r2 bob-2" data-parallax="0.16"></div>
     </div>
   </div>
 </section>
@@ -571,7 +564,7 @@
         </p>
       </div>
       <div class="photo reveal-right">
-        <div class="hex-big">[ foto herny / interiér ]</div>
+        <div class="hex-big"></div>
         <div class="hex-small"></div>
         <div class="hex-mini-1"></div>
         <div class="hex-mini-2"></div>
@@ -656,7 +649,7 @@
         <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-body"><h4>Odpolední svačinka a hry</h4><p>Volné tvoření, hry v herně nebo na zahradě — až do odchodu domů.</p></div></div>
         <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-body"><h4>Konec provozu</h4><p>Školička se loučí — těšíme se zase zítra.</p></div></div>
       </div>
-      <div class="day-photo reveal-right">[ foto z denního programu ]</div>
+      <div class="day-photo reveal-right"></div>
     </div>
   </div>
 </section>
